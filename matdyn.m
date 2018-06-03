@@ -1,4 +1,4 @@
-dataall=importdata("dynmateigv.txt");
+dataall=importdata("eigv.txt");
 atomborn=importdata("atomeffect.txt");
 fileID = fopen('modeeffect.txt','w');
 eigvector=dataall(1:end,1:end);
