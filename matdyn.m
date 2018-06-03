@@ -1,7 +1,7 @@
-dataall=importdata("eigev.txt");
+dataall=importdata("dynmateigv.txt");
 atomborn=importdata("atomeffect.txt");
 fileID = fopen('modeeffect.txt','w');
-eigvector=dataall(1:end,1:2:5);
+eigvector=dataall(1:end,1:end);
 atom=5;
 mass=zeros(1,5);
 for i=1:atom/5*3
@@ -13,6 +13,7 @@ end
 for i=atom/5*4+1:atom
     mass(i)=137.33;
 end;
+vol=(8.386494280/2)^3;
 for mu=1:15
 a_mu=renorm(eigvector(5*(mu-1)+1:5*(mu-1)+5,1:end),mass);
 modeff=zeros(3,1);
@@ -34,7 +35,7 @@ epsall=zeros(3,3);
 fileID = fopen('alldie.txt','w');
 tempadd=zeros(3,3);
 for i=4:len
-    add=die(borne(i,1:end),freq(i));
+    add=die(borne(i,1:end),freq(i),vol);
     tempadd=tempadd+add;
     if(mod(i,3)==0)
         tempadd
