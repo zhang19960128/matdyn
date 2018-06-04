@@ -2,20 +2,29 @@ dataall=importdata("eigv.txt");
 atomborn=importdata("atomeffect.txt");
 fileID = fopen('modeeffect.txt','w');
 eigvector=dataall(1:end,1:end);
-atom=5;
-mass=zeros(1,5);
-for i=1:atom/5*3
-    mass(i)=15.999;
+atom=94;
+mass=zeros(1,atom);
+for i=1:2
+    mass(i)=207.2;
 end
-for i=atom/5*3+1:atom/5*4
-    mass(i)=91.224;
+for i=3:10
+    mass(i)=126.90;
 end
-for i=atom/5*4+1:atom
-    mass(i)=137.33;
+for i=11:14
+    mass(i)=35.45;
 end;
+for i=15:18
+    mass(i)=14.007;
+end
+for i=19:62
+    mass(i)=1.008;
+end
+for i=63:94
+    mass(i)=12.011;
+end
 vol=(8.386494280/2)^3;
-for mu=1:15
-a_mu=renorm(eigvector(5*(mu-1)+1:5*(mu-1)+5,1:end),mass);
+for mu=1:atom*3
+a_mu=renorm(eigvector(atom*(mu-1)+1:atom*(mu-1)+atom,1:end),mass);
 modeff=zeros(3,1);
 for i=1:atom
     i_born=atomborn(3*(i-1)+1:3*(i-1)+3,1:end);
