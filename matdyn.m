@@ -5,7 +5,7 @@ eigvector=dataall(1:end,1:2:end);
 atom=5;
 mass=zeros(1,atom);
 for i=1:atom/5*3
-    mass(i)=15.999;
+    mass(i)=15.9999;
 end
 for i=atom/5*3+1:atom/5*4
     mass(i)=91.224;
